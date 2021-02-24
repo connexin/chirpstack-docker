@@ -9,14 +9,14 @@ services:
   chirpstack-application-server:
     image: chirpstack/chirpstack-application-server:3
     ports:
-      - 8080:8080
+      - 8088:8088
     volumes:
       - ./configuration/chirpstack-application-server:/etc/chirpstack-application-server
 
   chirpstack-gateway-bridge:
     image: chirpstack/chirpstack-gateway-bridge:3
     ports:
-      - 1700:1700/udp
+      - 1700:1700
     volumes:
       - ./configuration/chirpstack-gateway-bridge:/etc/chirpstack-gateway-bridge
 
@@ -42,7 +42,7 @@ services:
     image: eclipse-mosquitto:2
     ports:
       - 1883:1883
-    volumes: 
+    volumes:
       - ./configuration/eclipse-mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
 
 volumes:
